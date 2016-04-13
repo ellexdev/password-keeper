@@ -8,31 +8,31 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.ellexdev.passwordkeeper.R;
-import com.ellexdev.passwordkeeper.model.Password;
+import com.ellexdev.passwordkeeper.model.Account;
 
 import java.util.List;
 
 /**
  * Created by xander on 04/04/2016.
  */
-public class PasswordListAdapter extends BaseAdapter {
+public class AccountListAdapter extends BaseAdapter {
 
     private Context context;
-    private List<Password> passwordList;
+    private List<Account> accountList;
 
-    public PasswordListAdapter(Context context, List<Password> passwordList) {
+    public AccountListAdapter(Context context, List<Account> accountList) {
         this.context = context;
-        this.passwordList = passwordList;
+        this.accountList = accountList;
     }
 
     @Override
     public int getCount() {
-        return passwordList != null ? passwordList.size() : 0;
+        return accountList != null ? accountList.size() : 0;
     }
 
     @Override
     public Object getItem(int position) {
-        return passwordList.get(position);
+        return accountList.get(position);
     }
 
     @Override
@@ -45,9 +45,13 @@ public class PasswordListAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.list_item, null);
         }
-        Password password = (Password) getItem(position);
+        Account account = (Account) getItem(position);
         TextView itemText = (TextView) convertView.findViewById(R.id.list_text);
-        itemText.setText(password.getName());
+        itemText.setText(account.getName());
         return convertView;
+    }
+
+    public List<Account> getAccountList() {
+        return accountList;
     }
 }
