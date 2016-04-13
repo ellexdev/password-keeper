@@ -5,6 +5,7 @@ package com.ellexdev.passwordkeeper.model;
  */
 public class Account {
 
+    private int id;
     private String name;
     private AccountType accountType;
     private String login;
@@ -17,6 +18,14 @@ public class Account {
 
     public Account(AccountType accountType) {
         this.accountType = accountType;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
